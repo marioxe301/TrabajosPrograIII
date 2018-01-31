@@ -9,11 +9,11 @@ int main() {
 	cout << "Ingrese la altura: ";
 	cin >> altura;
 
-	Rectangulo r(base, altura);
+	Rectangulo r(base, altura);//contrutor con parametros
 	cout << "\nArea: " << r.getArea() << endl;
 	cout << "\nPerimetro: " << r.getPerimetro() << endl;
 
-	Rectangulo r2;
+	Rectangulo r2;//contructor vacio
 	r2.setBase(6);
 	r2.setAltura(9);
 
