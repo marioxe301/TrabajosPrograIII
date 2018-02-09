@@ -1,4 +1,9 @@
-#pragma once
+
+#ifndef PERSONA_H
+
+
+
+#define PERSONA_H
 
 #include<iostream>
 
@@ -26,3 +31,4 @@ protected:
 	char genero;
 
 };
+#endif // !PERSONA_H

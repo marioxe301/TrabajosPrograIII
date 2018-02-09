@@ -1,9 +1,12 @@
 #pragma once
+#ifndef EMPLEADO_H
+
+#define EMPLEADO_H
+
 
 #include"Persona.h"
 #include<iostream>
 #include <string>
-
 class Empleado : public Persona {
 
 public:
@@ -28,3 +31,4 @@ protected:
 	string empresa;
 
 };
+#endif // !EMPLEADO_H

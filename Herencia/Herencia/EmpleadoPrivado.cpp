@@ -9,7 +9,7 @@ EmpleadoPrivado::EmpleadoPrivado():
 }
 
 EmpleadoPrivado::EmpleadoPrivado(string nombre, int edad, char genero, string estado_civil, double salario, string puesto, string empresa) :
-	Empleado(nombre,edad,genero,estado_civil,salario,puesto,empresa)
+	Empleado(nombre, edad, genero, estado_civil, salario, puesto, empresa)
 {
 	cout << "Se construyo Empleado Privado...\n";
 }
