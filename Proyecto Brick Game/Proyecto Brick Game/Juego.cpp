@@ -342,19 +342,22 @@ void Juego::menu() {
 			
 			empezar();
 			CargarEstadisticas();
+
+
+			//Reinicio de variables
 			Juego::speed = 120;
 			Juego::vidas = 3;
 			Juego::puntos = 0;
 			Juego::choque = false;
 			Juego::nivel = 0;
 			Juego::nivelVelocidad = 1;
-
-		
 			gameover = true;
-			yE = 0; // carro enemigo
-			pasocarro = 0; //registra si paso el carro
+			yE = 0; 
+			pasocarro = 0; 
 			linea = rand() % 2;
-			
+
+			// limpiar sistema
+			system("cls");
 			break;
 
 		case 2:
