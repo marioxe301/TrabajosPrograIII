@@ -13,8 +13,16 @@ void ListaEnlazada::agregar(int valor) {
 		ultimo = primero = tmp;
 	}
 	else {
+		//Lista Doblemente Enlazada
+
+		ultimo->setSig(tmp);
+		tmp->setAnt(ultimo);
+		ultimo = tmp;
+
+		/* ListaEnlazada Simple
 		ultimo->setSig(tmp);
 		ultimo = tmp;
+		*/
 	}
 }
 
@@ -46,18 +54,40 @@ void ListaEnlazada::insertar(int poscicion, int valor) {
 			if (cont == poscicion) {
 				if (tmp==primero)
 				{
+					//Lista doblemente enlazada
+
 					nuevo->setSig(primero);
-					ultimo = primero;
+					primero->setAnt(nuevo);
 					primero = nuevo;
+
+					//Lista Enlazada Simple
+					/*nuevo->setSig(primero);
+					ultimo = primero;
+					primero = nuevo;*/
 				}
 				else if (tmp == ultimo) {
-					ant->setSig(nuevo);
-					nuevo->setSig(ultimo);
+					//Lista doblemente enlazada
+					ultimo->setSig(nuevo);
+					nuevo->setAnt(ultimo);
+					ultimo = nuevo;
+
+
+					//Lista Enlazada Simple
+					/*ant->setSig(nuevo);
+					nuevo->setSig(ultimo);*/
 						
 				}
 				else {
+					//Lista Doblemente enlazada
 					ant->setSig(nuevo);
+					nuevo->setAnt(ant);
 					nuevo->setSig(tmp);
+					tmp->setAnt(nuevo);
+
+
+					// Lista Enlazada simple
+					/*ant->setSig(nuevo);
+					nuevo->setSig(tmp);*/
 				}
 			}
 
@@ -76,4 +106,79 @@ int ListaEnlazada::getTamaño() {
 		tmp = tmp->getSig();
 	}
 	return cont;
+}
+
+bool ListaEnlazada::borrar(int valor) {
+	Nodo *actual = primero;
+	Nodo *anterior = 0;
+
+	while (actual!=0)
+	{
+		if (actual->getValor()==valor)
+		{
+			if (actual == primero) {
+				// Listadoblemente enlazada
+				primero = actual->getSig();
+				primero->setAnt(0);
+
+				delete actual;
+
+				//Lista enlazada simple
+				//primero = actual->getSig();
+
+			}
+			else if (actual == ultimo) {
+				ultimo = actual->getAnt();
+				ultimo->setSig(0);
+
+				delete actual;
+				//ultimo = anterior;
+
+			}
+			else
+			{
+				//lista Doblemente enlazada
+
+				actual->getAnt()->setSig(actual->getSig());
+				actual->getSig()->setAnt(actual->getAnt());
+
+				delete actual;
+
+				//lista enlazada simple
+				//anterior->setSig(actual->getSig());
+			}
+			return true;
+		}
+		anterior = actual;
+		actual = actual->getSig();
+	
+	}
+	return false;
+}
+
+int ListaEnlazada::buscar(int valor) {
+	Nodo *tmp = primero;
+	int poscicion = 0;
+
+	while (tmp!=0)
+	{
+		poscicion++;
+		if (tmp->getValor() == valor) {
+			return poscicion;
+		}
+
+		tmp = tmp->getSig();
+	}
+	return -1;
+}
+
+void ListaEnlazada::imprimirReversa() {
+	Nodo*tmp = ultimo;
+
+	while (tmp!=0)
+	{
+		std::cout << tmp->getValor()<< " ";
+		tmp = tmp->getAnt();
+	}
+	std::cout << std::endl;
 }

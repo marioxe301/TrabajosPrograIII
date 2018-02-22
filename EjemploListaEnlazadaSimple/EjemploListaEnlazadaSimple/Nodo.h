@@ -12,9 +12,13 @@ public:
 	void setSig(Nodo*);
 	Nodo* getSig();
 
+	void setAnt(Nodo *);
+	Nodo *getAnt();
+
 private:
 	int valor;
 	Nodo *sig;
+	Nodo *ant;
 };
 
 #endif // !NODO_H

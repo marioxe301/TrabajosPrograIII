@@ -12,6 +12,10 @@ public:
 	void agregar(int);
 	void insertar(int, int);
 	void imprimir();
+	bool borrar(int);
+	int buscar(int);
+
+	void imprimirReversa();
 private:
 	Nodo *primero, *ultimo;
 

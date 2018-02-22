@@ -1,2 +1,4 @@
-﻿  Main.cpp
+﻿  Juego.cpp
+c:\users\dell\documents\prograiii\trabajosprograiii\proyecto brick game\proyecto brick game\juego.cpp(8): warning C4309: 'inicializando': truncamiento de valor constante
+c:\users\dell\documents\prograiii\trabajosprograiii\proyecto brick game\proyecto brick game\juego.cpp(9): warning C4309: 'inicializando': truncamiento de valor constante
   Proyecto Brick Game.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\Proyecto Brick Game\Debug\Proyecto Brick Game.exe
