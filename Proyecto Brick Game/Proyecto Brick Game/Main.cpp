@@ -1,7 +1,7 @@
 #include "Juego.h"
 #include <iostream>
 #include <Windows.h>
-#include <thread>
+#include <thread> 
 using namespace std;
 
 int main() {

@@ -33,7 +33,7 @@ int linea = rand() % 2;
 int contTecla = 0;
 
 
-void Juego::LoadMap() {
+void Juego::LoadMap() { // carga todo los elementos del mapa
 	for (int y = 0; y < 16;y++) {
 		for (int x = 0; x < 12;x++) {
 			mapa[y][0]= muros;
@@ -70,7 +70,7 @@ void Juego::setCarro(int x, int y) {
 }
 
 void Juego::setCarroEnemigo() {
-	
+	// condicion si el carro ya paso
 	if (pasocarro == 15) {
 		SumarPuntuacion();
 		pasocarro = 0;
@@ -79,6 +79,7 @@ void Juego::setCarroEnemigo() {
 		linea = rand() % 3;
 
 	}
+	// condicion si choco se resetea
 	else if (choque == true) {
 		pasocarro = 0;
 		yE = 0;
@@ -86,7 +87,7 @@ void Juego::setCarroEnemigo() {
 		linea = rand() % 3;
 	}
 
-	
+	// poscicion del carrill
 
 	switch (linea) {
 	case 0:
@@ -132,7 +133,7 @@ void Juego::setCarroEnemigo() {
 
 
 
-void Juego::ImprimirMapa() {
+void Juego::ImprimirMapa() { // imprime el mapa
 
 	for (int y = 0; y < 16;y++) {
 		std::cout << std::endl;
@@ -143,7 +144,7 @@ void Juego::ImprimirMapa() {
 	}
 }
 
-void Juego::MoverCarro() {
+void Juego::MoverCarro() { // va tomando los eventos al presionar las teclas
 	if (GetAsyncKeyState(VK_LEFT)) {
 		xC -= 3;
 		if (xC <= 0) {
@@ -173,7 +174,7 @@ void Juego::MoverCarro() {
 	}
 }
 
-void Juego::ClearScreen()
+void Juego::ClearScreen() // funcion para evitar el parpadeo de la consola
 {
 	HANDLE hOut;
 	COORD Position;
@@ -185,7 +186,7 @@ void Juego::ClearScreen()
 	SetConsoleCursorPosition(hOut, Position);
 }
 
-void Juego::HideCursor()
+void Juego::HideCursor() // esconde el cursor y evita que este se mueva al momento de que se este refrescando la pantalla
 {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO info;
@@ -218,7 +219,7 @@ void Juego::VerificarColision() {
 	}
 	
 }
-void Juego::Imprimir_datos() {
+void Juego::Imprimir_datos() { // imprime la informacion en tiemo real de juego
 	gotoXY(13, 7); std::cout << "Vidas: " << vidas;
 	gotoXY(13, 8); std::cout << "Puntaje: " << puntos;
 	gotoXY(13, 10); std::cout << "Nivel: " << nivel;
@@ -226,14 +227,14 @@ void Juego::Imprimir_datos() {
 	
 }
 
-void Juego::gotoXY(int X, int Y) {
+void Juego::gotoXY(int X, int Y) { // posciciona el cursor en consola
 	COORD coord;
 	coord.X = X;
 	coord.Y = Y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void Juego::empezar() {
+void Juego::empezar() { // empieza todos los elementos del juego
 	
 	while (gameover) {
 		
@@ -253,7 +254,7 @@ void Juego::empezar() {
 		
 }
 
-void Juego::SumarPuntuacion() {
+void Juego::SumarPuntuacion() { // sumr puntuacion con respecto al nivel de la velocidad
 	if (nivelVelocidad== 1) {
 		speed = 120;
 		puntos += 20;
@@ -304,17 +305,18 @@ void Juego::SumarPuntuacion() {
 
 void Juego::CambiarNivel() {
 	
-	tiempo = clock() - tiempo;
-	seg = tiempo / (int)CLOCKS_PER_SEC;
+	tiempo = clock() - tiempo; // va obteniendo el tiempo transcurrido
+	seg = tiempo / (int)CLOCKS_PER_SEC; // tiempo en seg
 	if (seg/10 ==1*i ) {
 		++nivel;
 		++i;
 		
 	}
 		if (nivel > 10) {
-	
+		
 		nivel = 0 ;
-		++nivelVelocidad;
+		system("cls");
+		++nivelVelocidad; // aumentos respectivos
 		Imprimir_datos();
 
 	}
@@ -322,11 +324,11 @@ void Juego::CambiarNivel() {
 	
 }
 void Juego::InfoMenu() {
-	gotoXY(50, 10); std::cout << "Brick Game ";
-	gotoXY(50, 11); std::cout << "1.JUGAR";
-	gotoXY(50, 12); std::cout << "2.ESTADISTICAS ";
-	gotoXY(50, 13); std::cout << "3.SALIR";
-	gotoXY(50, 14); std::cin >> opcion;
+	gotoXY(50, 10); std::cout << "Brick Game Racing "; 
+	gotoXY(50, 15); std::cout << "1.JUGAR";
+	gotoXY(50, 16); std::cout << "2.ESTADISTICAS ";
+	gotoXY(50, 17); std::cout << "3.SALIR";
+	gotoXY(50, 18); std::cin >> opcion;
 	
 }
 
@@ -341,7 +343,7 @@ void Juego::menu() {
 		case 1:
 			
 			empezar();
-			CargarEstadisticas();
+			CargarEstadisticas(); // cargar antes de reiniciar variables
 
 
 			//Reinicio de variables
@@ -390,7 +392,9 @@ void Juego::MostrarEstadisticas() {
 		if (Puntuaciones[i] != 0) {
 			gotoXY(35, 3 + (i + 1)); std::cout << "Partida: " << i + 1 << "\t\t\t" << "Puntaje:" << Puntuaciones[i] << std::endl;
 		}
+
 	}
+	gotoXY(40, 2); std::cout << "Datos de las ultimas 10 partidas ";
 }
 
 
