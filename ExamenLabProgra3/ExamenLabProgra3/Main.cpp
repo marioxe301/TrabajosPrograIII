@@ -27,6 +27,7 @@ int main() {
 	
 
 	cout << endl;
+
 	lista->ImprimirDatosFactura("Max");
 	lista->BuscarFactura("Max")->imprimirFactura();
 
