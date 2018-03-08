@@ -344,7 +344,7 @@ void Notas::ObtenerPromedioClases(char * nombreC) {
 		else
 		{
 			if (obtenerCodigoMateria(nombreC) == codigoC) {
-				n = obtenerNombreClase(codigoA);
+				n = obtenerNombreClase(codigoC);
 
 				suma = suma + nota;
 				i++;
