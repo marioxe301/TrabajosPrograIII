@@ -4,7 +4,7 @@
 using namespace std;
 int main() {
 	int opcion;
-	char nombre[30];
+	char nombre[30]; // nombre a ingresar
 	do {
 		cout << endl << endl;
 		cout << "1.registrar Alumnos"<<endl;
