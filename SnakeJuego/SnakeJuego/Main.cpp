@@ -9,6 +9,7 @@
 
 int main()
 {
+	
 	bool arriba = false;
 	bool abajo = false;
 	bool izquierda = false;
@@ -54,7 +55,9 @@ int main()
 	//X y Y indican la posición de la imágen
 	bool running = true;
 	static float x = 300, y = 200;
-
+	static int i=0, j=0;
+	static int cola = 1;
+	
 	class foodImg
 	{
 	public:
@@ -76,6 +79,8 @@ int main()
 			else
 			{
 				++score;
+				cola++;
+				
 				//foodOnScreen--;
 				this->X = 850;
 			}
@@ -107,6 +112,8 @@ int main()
 		al_clear_to_color(al_map_rgba_f(0, 0, 0, 1));
 		al_draw_text(font, al_map_rgb(100, 255, 200), 400, 0, 0, score2);
 		al_draw_bitmap(bitmap, x, y, 0);
+		al_draw_bitmap(bitmap, x+i*cola, y+j*cola, 0);
+		
 		fd1->setXY();
 		fd1->spawnFood();
 		fd1->collision();
@@ -131,7 +138,9 @@ int main()
 			arriba = false;
 			izquierda = false;
 			derecha = true;
-			Sleep(40);
+			i = -37;
+			j = 0;
+			
 		}
 		//x += 0.1;
 		if (al_key_down(&keyState, ALLEGRO_KEY_LEFT))
@@ -140,7 +149,9 @@ int main()
 			arriba = false;
 			izquierda = true;
 			derecha = false;
-			Sleep(40);
+			i = 37;
+			j = 0;
+			
 		}
 		//x -= 0.1;
 		if (al_key_down(&keyState, ALLEGRO_KEY_UP))
@@ -149,7 +160,8 @@ int main()
 			arriba = true;
 			izquierda = false;
 			derecha = false;
-			Sleep(40);
+			i = 0;
+			j = 37;
 		}
 		//y -= 0.1;
 		if (al_key_down(&keyState, ALLEGRO_KEY_DOWN))
@@ -158,7 +170,8 @@ int main()
 			arriba = false;
 			izquierda = false;
 			derecha = false;
-			Sleep(40);
+			i = 0;
+			j = -37;
 		}
 		//y += 0.1;
 		if (al_key_down(&keyState, ALLEGRO_KEY_ESCAPE)) {
@@ -167,15 +180,31 @@ int main()
 
 		if (arriba == true) {
 			y -= 0.1;
+			
+			if (y <= 0) {
+				y = 600;
+			}
 		}
 		else if (abajo == true) {
 			y += 0.1;
+			
+			if (y >= 600) {
+				y = 0;
+			}
 		}
 		else if (izquierda == true) {
 			x -= 0.1;
+			
+			if (x<=0) {
+				x = 800;
+			}
 		}
 		else if (derecha == true) {
 			x += 0.1;
+			
+			if (x >= 800) {
+				x=0;
+			}
 		}
 	}
 
