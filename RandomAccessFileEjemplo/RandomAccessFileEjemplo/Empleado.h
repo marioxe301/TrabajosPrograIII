@@ -15,4 +15,8 @@ struct Empleado
 
 void registrarEmpleados();
 void consultarEmpleados();
+
+Empleado * BuscarEmpleado(int);
+void Imprimir_Subordinados(char *);
+
 #endif // !EMPLEADO_H

@@ -1,2 +1,3 @@
-﻿  Main.cpp
+﻿  Empleado.cpp
+c:\users\dell\documents\prograiii\trabajosprograiii\randomaccessfileejemplo\randomaccessfileejemplo\empleado.cpp(87): warning C4244: 'inicializando': conversión de 'std::streamoff' a 'int'; posible pérdida de datos
   RandomAccessFileEjemplo.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\RandomAccessFileEjemplo\Debug\RandomAccessFileEjemplo.exe

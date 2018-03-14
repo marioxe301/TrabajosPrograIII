@@ -4,9 +4,11 @@
 using namespace std;
 
 int main() {
+	char nombre[] = "Max";
 
 	//registrarEmpleados(); 
-	consultarEmpleados();
-
+	//consultarEmpleados();
+	//BuscarEmpleado(1);
+	Imprimir_Subordinados(nombre);
 	_getch();
 }
