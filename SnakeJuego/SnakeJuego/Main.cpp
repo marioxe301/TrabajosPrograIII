@@ -5,7 +5,8 @@
 #include <allegro5\allegro_font.h>
 #include <allegro5\allegro_native_dialog.h>
 #include <Windows.h>
-
+#define LARGO = 600
+#define ANCHO = 800
 
 int main()
 {
@@ -23,7 +24,7 @@ int main()
 
 	//Allegro Variables
 
-	//static int foodOnScreen = 0;
+	
 	static int score = 0;
 
 

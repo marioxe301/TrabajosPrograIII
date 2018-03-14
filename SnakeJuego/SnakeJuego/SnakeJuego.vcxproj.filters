@@ -18,8 +18,22 @@
     <ClCompile Include="Main.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Snake.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
