@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-void Utilidades::InsertarFinal(Nodo **inicio, int valor) {
+void UtilidadesListasEnlazadas::InsertarFinal(Nodo **inicio, int valor) {
 	if ((*inicio) == 0) {
 		Nodo *nuevo = new Nodo;
 		nuevo->valor = valor;
@@ -31,7 +31,7 @@ void Utilidades::InsertarFinal(Nodo **inicio, int valor) {
 
 }
 
-Nodo * Utilidades::CrearLista(int numeroE) {
+Nodo * UtilidadesListasEnlazadas::CrearLista(int numeroE) {
 	srand(time(0));
 
 	Nodo *Lista = 0;
@@ -45,7 +45,7 @@ Nodo * Utilidades::CrearLista(int numeroE) {
 
 }
 
-void Utilidades::OrdenarLista(Nodo **inicio) {
+void UtilidadesListasEnlazadas::OrdenarLista(Nodo **inicio) {
 	Nodo *actual = *inicio;
 	Nodo *siguiente;
 	int i = 0;
@@ -74,7 +74,7 @@ void Utilidades::OrdenarLista(Nodo **inicio) {
 
 
 
-void Utilidades::ImprimirLista(Nodo **inicio) {     //SOLO CREE LA FUNCION PARA MOTIVOS DE PRUEBA
+void UtilidadesListasEnlazadas::ImprimirLista(Nodo **inicio) {     //SOLO CREE LA FUNCION PARA MOTIVOS DE PRUEBA
 	if (*inicio == 0) {
 		return;
 	}
@@ -84,7 +84,7 @@ void Utilidades::ImprimirLista(Nodo **inicio) {     //SOLO CREE LA FUNCION PARA 
 	}
 }
 
-void Utilidades::GuardarLista(Nodo **Lista,char * nombre_archivo) {
+void UtilidadesListasEnlazadas::GuardarLista(Nodo **Lista,char * nombre_archivo) {
 	std::ofstream archivoApuntadores(nombre_archivo, std::ios::app);
 	if (!archivoApuntadores) {
 		std::cout << "Error al implementar el archivo " << nombre_archivo;

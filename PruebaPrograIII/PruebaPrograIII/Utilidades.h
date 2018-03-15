@@ -12,7 +12,7 @@ struct Nodo {
 	}
 };
 
-class Utilidades {
+class UtilidadesListasEnlazadas {
 public:
 	
 	static void InsertarFinal(Nodo **, int);
