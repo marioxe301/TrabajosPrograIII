@@ -1,0 +1,5 @@
+﻿  Utilidades.cpp
+c:\users\dell\documents\prograiii\trabajosprograiii\pruebaprograiii\pruebaprograiii\utilidades.cpp(35): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Main.cpp
+  Generando código...
+  PruebaPrograIII.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\PruebaPrograIII\Debug\PruebaPrograIII.exe

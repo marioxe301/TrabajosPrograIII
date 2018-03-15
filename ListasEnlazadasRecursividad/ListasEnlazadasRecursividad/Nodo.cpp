@@ -53,7 +53,7 @@ nodo *buscar(nodo**actual, int valor) {
 		return 0;
 	}
 	else if ((*actual)->valor == valor) {
-
+		return *actual;
 	}
 	else
 	{
