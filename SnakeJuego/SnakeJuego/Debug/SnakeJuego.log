@@ -1,1 +1,5 @@
-﻿  SnakeJuego.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\SnakeJuego\Debug\SnakeJuego.exe
+﻿  Snake.cpp
+c:\users\dell\documents\prograiii\trabajosprograiii\snakejuego\snakejuego\snake.cpp(1): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Main.cpp
+  Generando código...
+  SnakeJuego.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\SnakeJuego\Debug\SnakeJuego.exe

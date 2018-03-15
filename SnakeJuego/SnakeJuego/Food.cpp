@@ -6,10 +6,9 @@
 #include <allegro5\allegro_image.h>
 
 
-Food::Food(): X(0),Y(0),score(0)
+Food::Food(): X(1),Y(1),score(0)
 {
-	srand(time(NULL));
-	al_init_image_addon();
+	
 }
 
 Food::~Food()

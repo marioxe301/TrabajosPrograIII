@@ -12,7 +12,7 @@ int main() {
 	ALLEGRO_BITMAP *Background= al_load_bitmap("fong.jpeg");
 	ALLEGRO_FONT *font = al_load_ttf_font("YARDSALE.ttf", 64, 0);
 	Snake *snake = new Snake();
-	//Food *cmida = new Food();
+	//Food *food = new Food; ->no me agarra la variable
 
 	al_init();
 	display = al_create_display(800, 600);
@@ -29,10 +29,14 @@ int main() {
 
 	while (snake->getEstado())
 	{
-		al_draw_bitmap(Background, 0, 0, 0);
+		
 		snake->DibujarSnake();
 		snake->MoverSnake();
 
 	}
 
 }
+
+// ha ciertas situaciones en cuanto a dibujar, falta el simbolo amperson en algunas cosas, la clase food no me la agarra con construtor
+//vacio, referencia de algo que puede estar pasando segun la estructura´vista en el ejemplo del repositorio
+//  https://github.com/ferrolho/allegro-snake/tree/master/Snake // ferrolho
