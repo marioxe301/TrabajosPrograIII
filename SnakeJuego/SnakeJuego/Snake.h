@@ -1,6 +1,8 @@
 #pragma once
 #include <allegro5\allegro.h>
 #include <allegro5\bitmap.h>
+#include <vector>
+
 #ifndef SNAKE_H
 #define SNAKE_H
 
@@ -9,17 +11,20 @@ public:
 	Snake();
 	~Snake();
 
-	void DibujarSnake();
-	void DibujarCuerpo();
-	void MoverSnake();
+	void DibujarSnake(ALLEGRO_BITMAP *);
+	// void DibujarCuerpo(const std::vector<ALLEGRO_BITMAP*>& cuerpo);
+	void MoverSnake(ALLEGRO_KEYBOARD_STATE *);
 	bool getEstado();
+	float getX();
+	float getY();
 
 private:
 	float PosX;
 	float PosY;
-	float Velocidad=57;
+	float Velocidad = 0.15;
 	bool running;
-	ALLEGRO_BITMAP * cuerpo[30];
+	//posciciones anteriores
+
 	int	PosAntX;
 	int PosAntY;
 

@@ -5,17 +5,18 @@
 #define FOOD_H
 
 class Food {
+public:
 	Food();
 	~Food();
 
-	void SpawnFood();
-	void ColisionFood(float X,float Y);
+	void SpawnFood(float, float, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *);
+	bool ColisionFood(float X,float Y, ALLEGRO_BITMAP *);
 	void SetXY();
 
+	static int score;
 private:
 	float X;
 	float Y;
-	int score=0;
 
 };
 
