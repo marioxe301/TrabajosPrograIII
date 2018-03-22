@@ -321,7 +321,7 @@ void Notas::ObtenerPromedioAlumno(char * nombre) {
 
 void Notas::ObtenerPromedioClases(char * nombreC) {
 	ifstream archivoNotas("notas.dat", ios::in);
-
+	
 	if (!archivoNotas) {
 		cout << "Error al abrir notas.dat";
 
