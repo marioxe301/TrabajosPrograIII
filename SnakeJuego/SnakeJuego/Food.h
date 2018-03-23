@@ -10,7 +10,8 @@ public:
 	~Food();
 
 	void SpawnFood(float, float, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *);
-	bool ColisionFood(float X,float Y, ALLEGRO_BITMAP *);
+	void SpawnFood(bool, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *, ALLEGRO_BITMAP *);
+	bool ColisionFood(float X,float Y);
 	void SetXY();
 
 	static int score;

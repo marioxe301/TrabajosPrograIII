@@ -3,13 +3,16 @@
 #include <allegro5\allegro_image.h>
 #include <vector>
 
-Snake::Snake() :PosX(300), PosY(200), running(true)
-{}
+Snake::Snake() :PosX(300), PosY(200), running(true), size(1)
+{
+
+}
 
 Snake::~Snake()
 {}
 
-ALLEGRO_BITMAP *Cabeza;
+
+ALLEGRO_BITMAP * Cuerpo[100];
 int rotarCabeza = 0;
 int rotarVert = 0;
 
@@ -110,4 +113,26 @@ float Snake::getY()
 {
 	return this->PosY;
 }
+
+void Snake::DibujarCuerpo(Food *food, bool m,Snake *snake, ALLEGRO_BITMAP *cuerpo[]) {
+	if (m == true) {
+		if (cuerpo[0] == 0) {
+			for (int i = 0; i < 100; i++) {
+				cuerpo[i] = al_load_bitmap("cuerpo.png");
+				
+
+			}
+			al_draw_bitmap(cuerpo[0], 50, 50, 0);
+			snake->size++;
+		}
+		else {
+		for (int i = 0; i < snake->size; i++) {
+		cuerpo[i] = al_load_bitmap("cuerpo.png");
+		al_draw_bitmap(cuerpo[i], snake->PosX, snake->PosY, 0);
+		}
+		snake->size++;
+		}
+	}
+}
+	
 

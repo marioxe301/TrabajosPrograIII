@@ -1,8 +1,7 @@
 #pragma once
 #include <allegro5\allegro.h>
 #include <allegro5\bitmap.h>
-#include <vector>
-
+#include "Food.h"
 #ifndef SNAKE_H
 #define SNAKE_H
 
@@ -12,11 +11,17 @@ public:
 	~Snake();
 
 	void DibujarSnake(ALLEGRO_BITMAP *);
-	// void DibujarCuerpo(const std::vector<ALLEGRO_BITMAP*>& cuerpo);
+	void DibujarCuerpo(Food*,float,float, Snake *,ALLEGRO_BITMAP*[]);
+	void DibujarCuerpo(Food*,bool, Snake *, ALLEGRO_BITMAP*[]);
 	void MoverSnake(ALLEGRO_KEYBOARD_STATE *);
 	bool getEstado();
 	float getX();
 	float getY();
+
+	int size;
+	
+
+	ALLEGRO_BITMAP * Cuerpo[100];
 
 private:
 	float PosX;
@@ -25,8 +30,8 @@ private:
 	bool running;
 	//posciciones anteriores
 
-	int	PosAntX;
-	int PosAntY;
+	
+	
 
 };
 

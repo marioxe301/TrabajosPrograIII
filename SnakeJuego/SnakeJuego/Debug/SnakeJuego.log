@@ -1,6 +1,6 @@
-﻿  Food.cpp
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
-  Snake.cpp
+﻿  Snake.cpp
+c:\users\dell\documents\prograiii\trabajosprograiii\snakejuego\snakejuego\snake.cpp(1): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
   Main.cpp
-  SnakeJuego.vcxproj -> C:\Users\DELL\Desktop\SnakeJuego\Debug\SnakeJuego.exe
+  Food.cpp
+  Generando código...
+  SnakeJuego.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\SnakeJuego\Debug\SnakeJuego.exe
