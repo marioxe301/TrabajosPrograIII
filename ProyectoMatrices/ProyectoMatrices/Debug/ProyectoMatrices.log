@@ -1,6 +1,1 @@
-﻿  Matriz.cpp
-c:\users\dell\documents\prograiii\trabajosprograiii\proyectomatrices\proyectomatrices\matriz.cpp(36): warning C4018: '<': no coinciden signed/unsigned
-c:\users\dell\documents\prograiii\trabajosprograiii\proyectomatrices\proyectomatrices\matriz.cpp(70): warning C4018: '<': no coinciden signed/unsigned
-c:\users\dell\documents\prograiii\trabajosprograiii\proyectomatrices\proyectomatrices\matriz.cpp(140): warning C4018: '<': no coinciden signed/unsigned
-c:\users\dell\documents\prograiii\trabajosprograiii\proyectomatrices\proyectomatrices\matriz.cpp(77): warning C4715: 'Matriz::Filas': no todas las rutas de acceso de control devuelven un valor
-  ProyectoMatrices.vcxproj -> C:\Users\DELL\Documents\PrograIII\TrabajosPrograIII\ProyectoMatrices\Debug\ProyectoMatrices.exe
+﻿

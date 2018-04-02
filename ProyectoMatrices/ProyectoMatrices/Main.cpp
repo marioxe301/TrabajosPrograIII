@@ -3,40 +3,191 @@
 using namespace std;
 
 int main() {
-	Matriz *UtilidadesC= new Matriz;
 
+	int opcion;
 	Matriz A;
-
-
-	A.CrearMatriz("A.dat");
-	A.LLenarMatriz("A.dat");
-
-	A.ImprimirMatriz("A.dat");
-
-	//cout << "Nodo ini: " << A.getNodo()->getValor();
-
-
 	Matriz B;
-	B.CrearMatriz("B.dat");
-	B.LLenarMatriz("B.dat");
-	cout << endl<<endl;
+	Matriz Resta,Suma,Multi;
+	Matriz Determinante;
 
-	B.ImprimirMatriz("B.dat");
+	do {
+		cout << endl;
+		cout <<"1.CrearMatriz A" << endl;
+		cout <<"2.ImprimirMatriz A" << endl;
+		
+		cout <<"3.CrearMatriz B" << endl;
+		cout <<"4.ImprimirMatriz B" << endl;
 
-	//cout << "Nodo ini: " << B.getNodo()->getSig()->getValor();
+		cout << "5.Calcular Suma " << endl;
+		cout << "6. Calcular Resta" << endl;
 
-	system("pause");
+		cout << "7.Calcular Multiplicacion" << endl;
 
-	/*UtilidadesC->SumaMatriz(A, B, "A.dat", "B.dat", "A+B.dat");
+		cout << "8.Calcular Determinante " << endl;
+		cout << "9.Salir" << endl;
+		cin >> opcion;
+		cout << endl;
+		system("cls");
+		switch (opcion)
+		{
+		case 1:
+			char arch[10];
+			cout << "Escriba el Nombre del Alchivo para la Matriz A: ";
+			cin >> arch;
+
+			A.CrearMatriz(arch);
+			A.LLenarMatriz(arch);
+
+			cout << "Matriz A creada " << endl;
+
+			break;
+
+		case 2:
+			cout << endl;
+			char ar[10];
+			cout << "Escriba el Nombre del Archivo para la Matriz A: ";
+			cin >> ar;
+
+			A.ImprimirMatriz(ar);
+			cout << endl;
+			break;
+
+		case 3:
+			cout << endl;
+			char arvos[10];
+			cout << "Escriba el Nombre del Archivo para la Matriz B: ";
+			cin >> arvos;
+
+			B.CrearMatriz(arvos);
+			B.LLenarMatriz(arvos);
+
+			cout << "Matriz B creada " << endl;
+			cout << endl;
+			break;
+
+		case 4:
+			cout << endl;
+			char arivos[10];
+			cout << "Escriba el Nombre del Archivo para la Matriz B: ";
+			cin >> arivos;
+			B.ImprimirMatriz(arivos);
+			cout << endl;
+			break;
+
+		case 5:
+			cout << endl;
+			char vos[10];
+			cout << "Escriba el Nombre del Archivo de Suma: ";
+			cin >> vos;
+			
+
+			Suma.SumaMatriz(A, B, "A.dat", "B.dat",vos);
+			Suma.CrearMatriz(vos);
+			Suma.LLenarMatriz(vos);
+			system(vos);
+			Suma.ImprimirMatriz(vos);
+
+			cout << endl;
+			break;
+
+		case 6:
+			cout << endl;
+			char ivos[10];
+			cout << "Escriba el Nombre del Archivo de Resta: ";
+			cin >> ivos;
+			Resta.RestaMatriz(A, B, "A.dat", "B.dat", ivos);
+			Resta.CrearMatriz(ivos);
+			Resta.LLenarMatriz(ivos);
+			system(ivos);
+			Resta.ImprimirMatriz(ivos);
+			cout << endl;
+			break;
+
+		case 7:
+			cout << endl;
+			char a[10];
+			cout << "Escriba el Nombre del Archivo de Multiplicacion: ";
+			cin >> a;
+			
+			Multi.MultiplicacionMatriz(A, B, "A.dat", "B.dat", a);
+			Multi.CrearMatriz(a);
+			Multi.LLenarMatriz(a);
+			system(a);
+			Multi.ImprimirMatriz(a);
+			cout << endl;
+			break;
+
+		case 8:
+			int opc;
+			cout << "1.Determinante Matriz A ";
+			cout << endl;
+			cout << "2.Determinante Matriz B";
+			cout << endl;
+			cin >> opc;
+
+			switch (opc)
+			{
+			case 1:
+				Determinante.DeterminanteMatriz(A, "Adet.dat");
+				system("Adet.dat");
+				break;
+
+			case 2:
+				Determinante.DeterminanteMatriz(B, "Bdet.dat");
+				system("Bdet.dat");
+				break;
+			default:
+				break;
+			}
+			cout << endl;
 
 
-	UtilidadesC->RestaMatriz(A, B, "A.dat", "B.dat", "A-B.dat");*/
 
-	UtilidadesC->DeterminanteMatriz(A, "Adet.dat");
+		default:
+			break;
+		}
 
-	/*UtilidadesC->MultiplicacionMatriz(A, B, "A.dat", "B.dat", "AB.dat");*/
+	} while (opcion!=9);
+
+
+	
 
 
 
-	system("pause");
+	
 }
+
+//PRUEBAS HECHAS EN EL MAIN
+
+//Matriz *UtilidadesC= new Matriz;
+
+//Matriz A;
+
+
+//A.CrearMatriz("A.dat");
+//A.LLenarMatriz("A.dat");
+
+//A.ImprimirMatriz("A.dat");
+
+////cout << "Nodo ini: " << A.getNodo()->getValor();
+
+
+//Matriz B;
+//B.CrearMatriz("B.dat");
+//B.LLenarMatriz("B.dat");
+//cout << endl<<endl;
+
+//B.ImprimirMatriz("B.dat");
+
+////cout << "Nodo ini: " << B.getNodo()->getSig()->getValor();
+
+//system("pause");
+
+///*UtilidadesC->SumaMatriz(A, B, "A.dat", "B.dat", "A+B.dat");
+
+
+//UtilidadesC->RestaMatriz(A, B, "A.dat", "B.dat", "A-B.dat");*/
+
+////UtilidadesC->DeterminanteMatriz(A, "Adet.dat");
+
+//UtilidadesC->MultiplicacionMatriz(A, B, "A.dat", "B.dat", "AB.dat");

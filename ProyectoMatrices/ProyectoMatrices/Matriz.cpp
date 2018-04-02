@@ -1,5 +1,3 @@
-#include <ctime> // motivo prueba enlace
-#include <stdlib.h> // prueba enlace
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -154,7 +152,7 @@ void Matriz::LLenarMatriz(char *nombre) {
 	}
 }
 
-void Matriz::ImprimirMatriz(char *nombre) { // Motivos de Prueba
+void Matriz::ImprimirMatriz(char *nombre) { 
 	if (VerificarEscritura(nombre)) {
 		
 		Nodo *tmp = inicio;
@@ -356,6 +354,7 @@ void Matriz::ImprimirMatriz(char *nombre) { // Motivos de Prueba
 
 			 int Col = Columnas(nombreA);
 			 int Fil = Filas(nombreB);
+			 int contador = 0;
 
 			 Nodo *pivote1 = A.getNodo();
 			 Nodo *tmp1 = A.getNodo();
@@ -373,51 +372,73 @@ void Matriz::ImprimirMatriz(char *nombre) { // Motivos de Prueba
 
 			 for (int i = 0; i < Col; i++) {
 				 if (i == 0) {
-					 for (int k = 0; k < Fil; k++) {
-						 multiplicacion = multiplicacion + (pivote1->getValor()*pivote2->getValor());
-						 pivote1 = pivote1->getSig();
-						 pivote2 = pivote2->getAba();
+					 for (int k = 0; k < Fil*2; k++) {
+						 if (contador == Fil) {
+							 linea = linea + std::to_string(multiplicacion) + ' ';
+							
+							 pivote1 = tmp1;
+							 pivote2 = tmp2;
+
+							
+							 pivote2 = pivote2->getSig();
+
+						 }
+						 else
+						 {
+							 multiplicacion = multiplicacion + (pivote1->getValor()*pivote2->getValor());
+							 pivote1 = pivote1->getSig();
+							 pivote2 = pivote2->getAba();
+							 
+							 contador++;
+						 }
+						 
 					 }
-
-					 linea = linea + std::to_string(multiplicacion);
-					 archivoM << linea+"\n";
-
+					 archivoM << linea + "\n";
+					 linea = "";
+					 contador = 0;
 					 pivote1 = tmp1;
-
 					 pivote2 = tmp2;
 
 					 pivote1 = pivote1->getAba();
-					 tmp1 = tmp1->getAba();
-
-					 pivote2 = pivote2->getSig();
-					 tmp2 = tmp2->getSig();
-					 linea = "";
-					 multiplicacion = 0;
 
 				 }
 				 else {
+					 multiplicacion = 0;
+					 for (int k = 0; k < Fil * 2; k++) {
+						 
+						 if (contador == Fil) {
+							 
+							 linea = linea + std::to_string(multiplicacion) + ' ';
+							 
+							 pivote1 = tmp1;
+							 pivote2 = tmp2;
 
-					 for (int k = 0; k < Fil; k++) {
-						 multiplicacion = multiplicacion + (pivote1->getValor()*pivote2->getValor());
-						 pivote1 = pivote1->getSig();
-						 pivote2 = pivote2->getAba();
+							 
+							 pivote2 = pivote2->getSig();
+
+						 }
+						 else
+						 {
+							 multiplicacion = multiplicacion + (pivote1->getValor()*pivote2->getValor());
+							 pivote1 = pivote1->getSig();
+							 pivote2 = pivote2->getAba();
+							 
+							 contador++;
+						 }
+
 					 }
-
-					 linea = linea + std::to_string(multiplicacion);
 					 archivoM << linea + "\n";
-
+					 linea = "";
+					 contador = 0;
 					 pivote1 = tmp1;
 					 pivote2 = tmp2;
 
 					 pivote1 = pivote1->getAba();
-					 tmp1 = tmp1->getAba();
-
-					 pivote2 = pivote2->getSig();
-					 tmp2 = tmp2->getSig();
-					 linea = "";
-					 multiplicacion = 0;
 				 }
+
+
 			 }
+
 			 archivoM.close();
 		 }
 		 else {
