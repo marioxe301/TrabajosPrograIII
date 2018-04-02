@@ -35,11 +35,13 @@ int main() {
 			cout << "Escriba el Nombre del Alchivo para la Matriz A: ";
 			cin >> arch;
 
-			A.CrearMatriz(arch);
-			A.LLenarMatriz(arch);
+			system(arch);
+			if (A.VerificarEscritura(arch)) {
+				A.CrearMatriz(arch);
+				A.LLenarMatriz(arch);
 
-			cout << "Matriz A creada " << endl;
-
+				cout << "Matriz A creada " << endl;
+			}
 			break;
 
 		case 2:
@@ -47,9 +49,12 @@ int main() {
 			char ar[10];
 			cout << "Escriba el Nombre del Archivo para la Matriz A: ";
 			cin >> ar;
+			if (A.VerificarEscritura(ar)) {
 
-			A.ImprimirMatriz(ar);
-			cout << endl;
+
+				A.ImprimirMatriz(ar);
+				cout << endl;
+			}
 			break;
 
 		case 3:
@@ -57,12 +62,16 @@ int main() {
 			char arvos[10];
 			cout << "Escriba el Nombre del Archivo para la Matriz B: ";
 			cin >> arvos;
+			
+			system(arvos);
 
-			B.CrearMatriz(arvos);
-			B.LLenarMatriz(arvos);
+			if (A.VerificarEscritura(arch)) {
+				B.CrearMatriz(arvos);
+				B.LLenarMatriz(arvos);
 
-			cout << "Matriz B creada " << endl;
-			cout << endl;
+				cout << "Matriz B creada " << endl;
+				cout << endl;
+			}
 			break;
 
 		case 4:
@@ -70,8 +79,11 @@ int main() {
 			char arivos[10];
 			cout << "Escriba el Nombre del Archivo para la Matriz B: ";
 			cin >> arivos;
-			B.ImprimirMatriz(arivos);
-			cout << endl;
+
+			if (A.VerificarEscritura(arch)) {
+				B.ImprimirMatriz(arivos);
+				cout << endl;
+			}
 			break;
 
 		case 5:
@@ -80,13 +92,17 @@ int main() {
 			cout << "Escriba el Nombre del Archivo de Suma: ";
 			cin >> vos;
 			
-
-			Suma.SumaMatriz(A, B, "A.dat", "B.dat",vos);
-			Suma.CrearMatriz(vos);
-			Suma.LLenarMatriz(vos);
-			system(vos);
-			Suma.ImprimirMatriz(vos);
-
+			if (A.getColumnas() == B.getColumnas() && A.getFilas() == B.getFilas()) {
+				system(vos);
+				Suma.SumaMatriz(A, B, "A.dat", "B.dat", vos);
+				Suma.CrearMatriz(vos);
+				Suma.LLenarMatriz(vos);
+				system(vos);
+				Suma.ImprimirMatriz(vos);
+			}
+			else {
+				cout << "No tienen la misma dimension"<<endl;
+			}
 			cout << endl;
 			break;
 
@@ -95,11 +111,19 @@ int main() {
 			char ivos[10];
 			cout << "Escriba el Nombre del Archivo de Resta: ";
 			cin >> ivos;
-			Resta.RestaMatriz(A, B, "A.dat", "B.dat", ivos);
-			Resta.CrearMatriz(ivos);
-			Resta.LLenarMatriz(ivos);
-			system(ivos);
-			Resta.ImprimirMatriz(ivos);
+			if (A.getColumnas() == B.getColumnas() && A.getFilas() == B.getFilas()) {
+				system(ivos);
+				Resta.RestaMatriz(A, B, "A.dat", "B.dat", ivos);
+				Resta.CrearMatriz(ivos);
+				Resta.LLenarMatriz(ivos);
+				system(ivos);
+				Resta.ImprimirMatriz(ivos);
+			}
+			else
+			{
+				cout << "No tienen la misma dimension" << endl;
+			}
+
 			cout << endl;
 			break;
 
@@ -108,12 +132,18 @@ int main() {
 			char a[10];
 			cout << "Escriba el Nombre del Archivo de Multiplicacion: ";
 			cin >> a;
-			
-			Multi.MultiplicacionMatriz(A, B, "A.dat", "B.dat", a);
-			Multi.CrearMatriz(a);
-			Multi.LLenarMatriz(a);
-			system(a);
-			Multi.ImprimirMatriz(a);
+			if (A.getFilas() == B.getColumnas()) {
+				system(a);
+				Multi.MultiplicacionMatriz(A, B, "A.dat", "B.dat", a);
+				Multi.CrearMatriz(a);
+				Multi.LLenarMatriz(a);
+				system(a);
+				Multi.ImprimirMatriz(a);
+			}
+			else
+			{
+				std::cout << "No se pueden multiplicar ya que debe tener La matriz B el en columnas el mismo numero de fila de la matriz A para la multiplicacion" << std::endl;
+			}
 			cout << endl;
 			break;
 
